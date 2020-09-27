@@ -1,6 +1,9 @@
 package main
 
-import cnvd "gcrawler/src/extractor"
+import (
+	"fmt"
+	cnvd "gcrawler/src/extractor"
+)
 
 /**
  * Author: gageshan
@@ -9,5 +12,9 @@ import cnvd "gcrawler/src/extractor"
  */
 
 func main() {
-	cnvd.IndexFromUrl(33, 20, 20)
+	urls := cnvd.IndexFromUrl(33, 20, 20)
+	for _, i := range urls {
+		Json := cnvd.DataFromIndexUrl(i)
+		fmt.Println(Json)
+	}
 }
